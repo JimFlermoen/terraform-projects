@@ -1,7 +1,7 @@
 # --VPC Resources Variables Child Module-- 
 
 variable "name" {
-  default = "wk22-two-tier"
+  default = "wk22-project"
 }
 
 variable "vpc_cidr" {

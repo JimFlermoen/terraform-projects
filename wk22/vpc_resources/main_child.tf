@@ -9,7 +9,7 @@ resource "aws_vpc" "wk22_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
   tags = {
-    Name = var.name
+    Name = "${var.name}-vpc"
   }
 }
 
@@ -19,6 +19,7 @@ resource "aws_subnet" "private_subnets" {
   vpc_id            = var.vpc_id
   cidr_block        = cidrsubnet(var.vpc_cidr, 8, each.value)
   availability_zone = tolist(data.aws_availability_zones.available.names)[each.value]
+
   tags = {
     Name = each.key
   }
@@ -46,7 +47,7 @@ resource "aws_route_table" "private_rt" {
     nat_gateway_id = aws_nat_gateway.nat_gateway.id
   }
   tags = {
-    Name = var.name
+    Name = "${var.name}-private-rt"
   }
 }
 
@@ -59,7 +60,7 @@ resource "aws_route_table" "public_rt" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    Name = var.name
+    Name = "${var.name}-public_rt"
   }
 }
 
@@ -83,7 +84,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = var.vpc_id
 
   tags = {
-    Name = var.name
+    Name = "${var.name}-igw"
   }
 }
 
@@ -99,7 +100,7 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
 
   tags = {
-    Name = var.name
+    Name = "${var.name}-nat_gateway"
   }
 }
 
