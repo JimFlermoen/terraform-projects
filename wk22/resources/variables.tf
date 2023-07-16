@@ -1,17 +1,10 @@
-# Child Module Variables
-
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
+# --VPC Resources Variables Child Module-- 
 
 variable "name" {
-  type    = string
   default = "wk22-two-tier"
 }
 
 variable "vpc_cidr" {
-  type    = string
   default = "10.0.0.0/16"
 }
 
@@ -20,29 +13,15 @@ variable "vpc_id" {
 }
 
 variable "private_subnets" {
-  type = map(any)
   default = {
-    private_subnet_1 = {
-      cidr = "10.0.1.0/24"
-      az   = "us-east-1a"
-    }
-    private_subnet_2 = {
-      cidr = "10.0.2.0/24"
-      az   = "us-east-1b"
-    }
+    "private_subnet_1" = 1
+    "private_subnet_2" = 2
   }
 }
 
 variable "public_subnets" {
-  type = map(any)
   default = {
-    public_subnet_1 = {
-      cidr = "10.0.100.0/24"
-      az   = "us-east-1a"
-    }
-    public_subnet_2 = {
-      cidr = "10.0.200.0/24"
-      az   = "us-east-1b"
-    }
+    "public_subnet_1" = 1
+    "public_subnet_2" = 2
   }
 }
