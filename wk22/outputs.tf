@@ -1,5 +1,5 @@
-# root outputs.tf
+# --Root outputs.tf--
 
 output "vpc_id" {
-  value = module.vpc.vpc_id
+  value = module.vpc_resources.vpc_id
 }

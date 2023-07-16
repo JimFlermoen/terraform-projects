@@ -1,5 +1,6 @@
-# root providers.tf
+# --- root/providers.tf ---
 
+# Configure the AWS Provider
 terraform {
   required_providers {
     aws = {
@@ -9,3 +10,17 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = "us-east-1"
+}
+
+#terraform {
+#  backend "remote" {
+#    hostname = "app.terraform.io"
+#    organization = "jf-luit"
+#
+#    workspaces {
+#      name = "my-wk22_project"
+#    }
+#  }
+#}

@@ -7,7 +7,7 @@ resource "aws_instance" "week-20" {
   instance_type   = var.instance_type
   subnet_id       = var.subnet_id
   key_name        = "Projectkey"
-  user_data       = file("${path.module}/script.sh")
+  user_data       = file("script.sh")
   security_groups = [aws_security_group.jenkins_sg.id]
   tags = {
     Name = "week-20"
