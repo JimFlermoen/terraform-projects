@@ -1,6 +1,6 @@
-# --Root outputs.tf--
+# --Resources Outputs Child Module--
 
+# output of VPC Id
 output "vpc_id" {
-  value = module.vpc_resources.vpc_id
+  value = aws_vpc.wk22_vpc.id
 }
-
