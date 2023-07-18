@@ -1,5 +1,9 @@
 # --Variables.tf-- 
 
+variable "AWS_REGION" {
+  default = "us-east-1"
+}
+
 variable "name" {
   default = "wk22-project"
 }
